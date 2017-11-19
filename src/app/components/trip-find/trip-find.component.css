@@ -1,0 +1,20 @@
+.find-trip {
+    background-color: #fff;
+}
+.find-trip > header {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.heading__top-bar {
+    text-align: center;
+    background: #003145 url('../../../assets/img/af_pattern_bg.png') repeat 50% 50%;
+    color: #fff;
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1;
+}
+.heading__title {
+    text-align: center;
+    font-size: 28px;
+}

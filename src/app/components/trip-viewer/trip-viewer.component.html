@@ -1,0 +1,20 @@
+<article class="trip-viewer" *ngIf="trip">
+    <dl>
+        <dt>Bookingcode</dt>
+        <dd>{{ trip.bookingCode }}</dd>
+
+        <dt>Passengers</dt>
+        <!-- Array.isArray(trip.passengers) -->
+        <!-- <dd *ngFor="passenger in trip.passengers">{{ passenger.title.name }} {{ passenger.firstName }} {{ passenger.lastName }}</dd> -->
+        <!-- But, it isn't -->
+        <dd>{{ trip.passengers.title.name }} {{ trip.passengers.firstName }} {{ trip.passengers.lastName }}</dd>
+
+        <dt><h2>Flight data</h2></dt>
+        <dt>Duration</dt>
+        <dd>{{ trip.itinerary.connections[0].duration }} minutes</dd>
+        <dt>From</dt>
+        <dd>{{ trip.itinerary.connections[0].origin.name }} ({{ trip.itinerary.connections[0].origin.IATACode }})</dd>
+        <dt>To</dt>
+        <dd>{{ trip.itinerary.connections[0].destination.name }} ({{ trip.itinerary.connections[0].destination.IATACode }})</dd>
+    </dl>
+</article>
