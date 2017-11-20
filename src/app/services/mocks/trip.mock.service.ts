@@ -1,6 +1,6 @@
-import { InMemoryDbService } from "angular-in-memory-web-api";
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-import { Trip } from "../../models/trip";
+import { Trip } from '../../models/trip';
 
 export class TripMockService extends InMemoryDbService {
     createDb() {

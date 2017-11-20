@@ -1,14 +1,48 @@
+header {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.heading__top-bar {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px;
+    background: #003145 url('../../../assets/img/af_pattern_bg.png') repeat 50% 50%;
+    color: #fff;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1;
+}
+.heading__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 48px;
+    color: #003145;
+    padding-bottom: 20px;
+    background: -moz-linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(0,49,69,1) 50%, rgba(0,49,69,1) 100%);
+    background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(0,49,69,1) 50%, rgba(0,49,69,1) 100%);
+    background: -o-linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(0,49,69,1) 50%, rgba(0,49,69,1) 100%);
+    background: -ms-linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(0,49,69,1) 50%, rgba(0,49,69,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(0,49,69,1) 50%, rgba(0,49,69,1) 100%);
+    background-position: bottom center;
+    background-size: 50px 10px;
+    background-repeat: no-repeat;
+}
+.content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .input-fields {
     width: 100%;
-    padding-bottom: 20px;
+    padding: 20px 0;
 }
 .input-field {
     width: 100%;
+    margin-bottom: 20px;
 }
 .input-field__label {
     width: 100%;
     display: inline-block;
-    font-weight: bold;
     margin-bottom: 5px;
 }
 .input-field__input {
@@ -38,4 +72,13 @@
 }
 .btn--submit:disabled {
     cursor: not-allowed;
+}
+
+@media (min-width: 30em) {
+    .content {
+        border: solid 1px #003145;
+        padding: 10px;
+        max-width: 30em;
+        margin: 50px auto 0;
+    }
 }

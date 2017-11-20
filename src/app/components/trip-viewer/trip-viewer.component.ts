@@ -1,17 +1,12 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
-import { Trip } from "../../models/trip";
+import { Trip } from '../../models/trip';
 
 @Component({
     selector: 'trip-viewer',
     templateUrl: './trip-viewer.component.html',
     styleUrls: ['./trip-viewer.component.css'],
 })
-export class TripViewerComponent implements OnInit {
-
+export class TripViewerComponent {
     @Input() trip: Trip;
-
-    ngOnInit() {
-        //
-    }
 }

@@ -1,0 +1,36 @@
+.info-list__heading {
+    display: inline-block;
+    margin: 10px 0 0;
+    font-size: 18px;
+    font-weight: bold;
+    width: 35%;
+}
+.info-list__heading--large {
+    width: 100%;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.info-list__data {
+    display: inline-block;
+    width: 65%;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.info-list__data + .info-list__data {
+    margin-left: 35%;
+}
+
+@media (max-width: 30em) {
+    .info-list__heading {
+        width: 100%;
+    }
+    .info-list__data {
+        width: 100%;
+    }
+    .info-list__data + .info-list__data {
+        margin-left: 0;
+    }
+}

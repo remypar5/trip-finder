@@ -1,20 +1,21 @@
 <article class="trip-viewer" *ngIf="trip">
-    <dl>
-        <dt>Bookingcode</dt>
-        <dd>{{ trip.bookingCode }}</dd>
+    <dl class="info-list">
+        <dt class="info-list__heading">Bookingcode</dt><dd
+            class="info-list__data">{{ trip.bookingCode }}</dd>
 
-        <dt>Passengers</dt>
+        <dt class="info-list__heading">Passengers</dt><dd
+            class="info-list__data">{{ trip.passengers.title.name }} {{ trip.passengers.firstName }} {{ trip.passengers.lastName }}</dd>
         <!-- Array.isArray(trip.passengers) -->
         <!-- <dd *ngFor="passenger in trip.passengers">{{ passenger.title.name }} {{ passenger.firstName }} {{ passenger.lastName }}</dd> -->
-        <!-- But, it isn't -->
-        <dd>{{ trip.passengers.title.name }} {{ trip.passengers.firstName }} {{ trip.passengers.lastName }}</dd>
 
-        <dt><h2>Flight data</h2></dt>
-        <dt>Duration</dt>
-        <dd>{{ trip.itinerary.connections[0].duration }} minutes</dd>
-        <dt>From</dt>
-        <dd>{{ trip.itinerary.connections[0].origin.name }} ({{ trip.itinerary.connections[0].origin.IATACode }})</dd>
-        <dt>To</dt>
-        <dd>{{ trip.itinerary.connections[0].destination.name }} ({{ trip.itinerary.connections[0].destination.IATACode }})</dd>
+        <dt class="info-list__heading info-list__heading--large">Flight data</dt>
+        <dt class="info-list__heading">Duration</dt><dd
+            class="info-list__data">{{ trip.itinerary.connections[0].duration }} minutes</dd>
+        <dt class="info-list__heading">From</dt><dd
+            class="info-list__data">{{ trip.itinerary.connections[0].origin.name }} ({{ trip.itinerary.connections[0].origin.IATACode }})</dd><dd
+            class="info-list__data">{{ trip.itinerary.connections[0].segments[0].marketingFlight.operatingFlight.localScheduledDeparture | date:'medium' }}</dd>
+        <dt class="info-list__heading">To</dt><dd
+            class="info-list__data">{{ trip.itinerary.connections[0].destination.name }} ({{ trip.itinerary.connections[0].destination.IATACode }})</dd><dd
+            class="info-list__data">{{ trip.itinerary.connections[0].segments[0].marketingFlight.operatingFlight.localScheduledArrival | date:'medium' }}</dd>
     </dl>
 </article>

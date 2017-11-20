@@ -27,7 +27,8 @@ export class TripService {
                 if (trip === undefined) {
                     return false;
                 }
-                return trip.passengers.lastName.toLowerCase() === familyName.toLowerCase();
+                return trip.bookingCode === bookingCode &&
+                    trip.passengers.lastName.toLowerCase() === familyName.toLowerCase();
             });
     }
 }

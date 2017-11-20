@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 import { TripFind } from '../../models/trip-find';
 import { Trip } from '../../models/trip';
 import { TripService } from '../../services/trip.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'trip-find-form',
@@ -13,10 +14,22 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TripFindFormComponent implements OnInit {
 
+    checkIn = 'check-in';
+    title = 'Retrieve Your Booking';
+    description = 'You can find your booking by filling out our family name and the booking code in your booking confirmation.';
+
+    isLoading: boolean = false;
+    isFormSubmitted: boolean = false;
+    isTripFound: boolean = false;
+
     tripFindForm: FormGroup;
     trip: Trip;
 
-    constructor(private builder: FormBuilder, private tripService: TripService) { }
+    constructor(
+        private builder: FormBuilder,
+        private tripService: TripService,
+        private router: Router
+    ) { }
 
     ngOnInit() {
         this.buildForm();
@@ -40,10 +53,11 @@ export class TripFindFormComponent implements OnInit {
     }
 
     handleSubmitForm() {
-        const { status, value } = this.tripFindForm;
+        const { valid, value } = this.tripFindForm;
         const { bookingCode, familyName } = value;
 
-        if (status === 'VALID') {
+        if (valid) {
+            this.isFormSubmitted = true;
             this.findTrip(value);
         } else {
             // TODO: Show what's wrong
@@ -51,7 +65,19 @@ export class TripFindFormComponent implements OnInit {
     }
 
     findTrip(tripFind: TripFind):void {
+        this.isLoading = true;
         this.tripService.getTrip(tripFind)
-            .subscribe((trip) => this.trip = trip[0]);
+            .subscribe((trip) => {
+                this.isLoading = false;
+                if (Array.isArray(trip) && trip.length === 1) {
+                    this.isTripFound = true;
+                    trip = trip[0];
+                } else {
+                    // TODO: Show 404 message
+                    this.isTripFound = false;
+                    trip = undefined;
+                }
+                this.trip = trip;
+            });
     }
 }

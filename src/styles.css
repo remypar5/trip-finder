@@ -1,7 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* A copy of Font Excellence in Motion (eim) is borrowed from https://airfrance.fr */
+@font-face {
+    font-family: eim;
+    src: url(/assets/fonts/ExcellenceInMotion_Regular.eot) format('eot');
+    src: url(/assets/fonts/ExcellenceInMotion_Regular.eot?) format('eot'),url(/assets/fonts/ExcellenceInMotion_Regular.woff) format('woff'),url(/assets/fonts/ExcellenceInMotion_Regular.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: eim;
+    src: url(/assets/fonts/ExcellenceInMotion_Medium.eot) format('eot');
+    src: url(/assets/fonts/ExcellenceInMotion_Medium.eot?) format('eot'),url(/assets/fonts/ExcellenceInMotion_Medium.woff) format('woff'),url(/assets/fonts/ExcellenceInMotion_Medium.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: eim;
+    src: url(/assets/fonts/ExcellenceInMotion_Bold.eot) format('eot');
+    src: url(/assets/fonts/ExcellenceInMotion_Bold.eot?) format('eot'),url(/assets/fonts/ExcellenceInMotion_Bold.woff) format('woff'),url(/assets/fonts/ExcellenceInMotion_Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
 }
 body {
     margin: 0;
+    font-family: eim, Arial, Helvetica, sans-serif;
 }

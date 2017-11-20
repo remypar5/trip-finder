@@ -1,14 +1,27 @@
-<form class="trip-find" name="trip-find" [formGroup]="tripFindForm" (submit)="handleSubmitForm()" novalidate>
-    <div class="input-fields">
-        <label class="input-field">
-            <span class="input-field__label">Booking code</span>
-            <input type="text" class="input-field__input" formControlName="bookingCode" name="bookingCode">
-        </label>
-        <label class="input-field">
-            <span class="input-field__label">Family name</span>
-            <input type="text" class="input-field__input" formControlName="familyName" name="familyName">
-        </label>
-    </div>
-    <button type="submit" class="btn btn--submit" [disabled]="tripFindForm.status !== 'VALID'">Retrieve booking</button>
-</form>
-<trip-viewer [trip]="trip"></trip-viewer>
+<header>
+    <div class="heading__top-bar">{{ checkIn | uppercase }}</div>
+</header>
+<div class="content">
+    <h1 class="heading__title">{{ title | uppercase }}</h1>
+    <p>{{ description }}</p>
+    <form class="trip-find" name="trip-find" [formGroup]="tripFindForm" (submit)="handleSubmitForm()" novalidate>
+        <div class="input-fields">
+            <div class="input-field">
+                <label for="">
+                    <span class="input-field__label">Booking code</span>
+                    <input type="text" class="input-field__input" formControlName="bookingCode" name="bookingCode">
+                </label>
+            </div>
+            <div class="input-field">
+                <label for="">
+                    <span class="input-field__label">Family name</span>
+                    <input type="text" class="input-field__input" formControlName="familyName" name="familyName">
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn--submit" [disabled]="tripFindForm.status !== 'VALID'">Retrieve booking</button>
+    </form>
+    <p *ngIf="isLoading">Searching...</p>
+    <p *ngIf="!isLoading && isFormSubmitted && !isTripFound">Cannot find trip. Try again.</p>
+    <trip-viewer *ngIf="!isLoading && isFormSubmitted && isTripFound" [trip]="trip"></trip-viewer>
+</div>
